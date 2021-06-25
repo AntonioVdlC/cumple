@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'steps/step1.dart';
-import 'steps/step2.dart';
-import 'steps/step3.dart';
-import 'steps/step4.dart';
+import 'steps/welcome.dart';
+import 'steps/sync.dart';
+import 'steps/notifications.dart';
+import 'steps/finish.dart';
 
 class OnBoarding extends StatefulWidget {
   final Function() onComplete;
@@ -39,13 +39,13 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
       body: Center(
         child: _currentStep == 0
-            ? OnBoardingStep1(onNext: _onNext)
+            ? Welcome(onNext: _onNext)
             : _currentStep == 1
-                ? OnBoardingStep2(onNext: _onNext)
+                ? Sync(onNext: _onNext)
                 : _currentStep == 2
-                    ? OnBoardingStep3(onNext: _onNext)
+                    ? Notifications(onNext: _onNext)
                     : _currentStep == 3
-                        ? OnBoardingStep4(onNext: _onNext)
+                        ? Finish(onNext: _onNext)
                         : null,
       ),
     );
