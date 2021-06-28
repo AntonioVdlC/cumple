@@ -32,7 +32,7 @@ class _MainState extends State<Main> {
       appBar: AppBar(
         title: const Text('Cumple – Birthday Reminder'),
       ),
-      body: Center(
+      body: Container(
         child: _pages.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(

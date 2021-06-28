@@ -31,22 +31,29 @@ class _OnBoardingState extends State<OnBoarding> {
     });
   }
 
+  Widget _getStepFromIndex(int index) {
+    switch (index) {
+      case 0:
+        return Welcome(onNext: _onNext);
+      case 1:
+        return Sync(onNext: _onNext);
+      case 2:
+        return Notifications(onNext: _onNext);
+      case 3:
+        return Finish(onNext: _onNext);
+      default:
+        return Welcome(onNext: _onNext);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cumple – Birthday Reminder'),
       ),
-      body: Center(
-        child: _currentStep == 0
-            ? Welcome(onNext: _onNext)
-            : _currentStep == 1
-                ? Sync(onNext: _onNext)
-                : _currentStep == 2
-                    ? Notifications(onNext: _onNext)
-                    : _currentStep == 3
-                        ? Finish(onNext: _onNext)
-                        : null,
+      body: Container(
+        child: _getStepFromIndex(_currentStep),
       ),
     );
   }
